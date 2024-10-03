@@ -8,11 +8,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PythagoreController extends AbstractController
 {
-    private PythagoreUtility $pythagoreUtility;
 
-    public function __construct(PythagoreUtility $pythagoreUtility)
+    public function __construct(private readonly PythagoreUtility $pythagoreUtility)
     {
-        $this->pythagoreUtility = $pythagoreUtility;
+
     }
 
     #[Route("/pythagore/view", name: "pythagore_view")]

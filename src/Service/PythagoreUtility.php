@@ -5,16 +5,32 @@ class PythagoreUtility
 {
     public function display(): string
     {
-        $html = '<table border="1" cellspacing="0">';
-        for ($i = 1; $i <= 10; $i++) {
-            $html .= '<tr>';
-            for ($j = 1; $j <= 10; $j++) {
-                $html .= '<td>' . ($i * $j) . '</td>';
-            }
-            $html .= '</tr>';
+        $table = "<table border=\"1\" border-collapse=\"collapse\">\n";
+        $table .= "<tr><th>&nbsp;</th>";
+
+        // Première ligne d'en-tête avec les nombres de 0 à 10
+        for ($i = 0; $i <= 10; $i++) {
+            $table .= "<th>$i</th>";
         }
-        $html .= '</table>';
-        
-        return $html;
+        $table .= "</tr>\n";
+
+        // Boucle pour les lignes de la table (de 0 à 10)
+        for ($i = 0; $i <= 10; $i++) {
+            $table .= "<tr>";
+            $table .= "<th>$i</th>";  // En-tête de ligne
+
+            // Boucle pour les colonnes de la table (de 0 à 10)
+            for ($j = 0; $j <= 10; $j++) {
+                if ($i === $j) {
+                    $table .= "<td>X</td>";  // Si i == j, on affiche 'X'
+                } else {
+                    $table .= "<td>" . ($i * $j) . "</td>";  // Sinon, on affiche le produit i * j
+                }
+            }
+            $table .= "</tr>\n";
+        }
+
+        $table .= "</table>\n";
+        return $table;
     }
 }
