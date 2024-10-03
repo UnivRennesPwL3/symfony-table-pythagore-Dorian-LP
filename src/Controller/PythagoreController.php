@@ -18,10 +18,8 @@ class PythagoreController extends AbstractController
     #[Route("/pythagore/view", name: "pythagore_view")]
     public function displayPythagoreAction(): Response
     {
-        $tableHtml = $this->pythagoreUtility->display();
-
         return $this->render('displayPythagore.html.twig', [
-            'htmlResponse' => $tableHtml,
+            'htmlResponse' => $this->pythagoreUtility->display(),
             'nom' => 'Le Peillet',
             'prenom' => 'Dorian',
         ]);
